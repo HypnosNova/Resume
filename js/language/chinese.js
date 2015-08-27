@@ -5,5 +5,12 @@ var chinese={
 	experience:"工作经验",
 	production:"作品展示",
 	blog:"我的博客",
-	other:"其他"
+	other:"其他",
+	archive:"X档案",
+	name:"姓名：孙学青",
+	area:"所在地：中国-上海-杨浦区",
+	gender:"性别：男",
+	age:"年龄："+(new Date().getFullYear()-1991),
+	planet:"星球: 银河 - 太阳系 - 地球",
+	skills:"技能："
 }

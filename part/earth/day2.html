@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<style>
+	body {
+		background-color: transparent;
+		padding: 0;
+		margin: 0;
+	}
+</style>
+</head>
+
+<body scroll="no">
+	<script src="../../js/lib/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/three.min.js"></script>
+	<script>
+		var scene = new THREE.Scene();
+		var camera = new THREE.PerspectiveCamera(44, 500 / 500, 0.1, 1000);
+
+    camera.up.x = 100;  
+    camera.up.y = 100;  
+    camera.up.z = 100;  
+    camera.lookAt({x:0,y:0,z:0});
+		var renderer = new THREE.WebGLRenderer({antialias:true,});
+		renderer.setSize(500, 500);
+		document.body.appendChild(renderer.domElement);
+
+		scene.add(new THREE.AmbientLight(0x888888));
+
+		//Lighting
+		var light = new THREE.DirectionalLight(0x999999, 1);
+		light.position.set(5, 3, 5);
+		scene.add(light);
+
+		var geometry = new THREE.SphereGeometry(0.5, 32, 32);
+		var material = new THREE.MeshPhongMaterial();
+		var earthMesh = new THREE.Mesh(geometry, material);
+		scene.add(earthMesh);
+
+		material.map = THREE.ImageUtils.loadTexture("images/earthmap1k.jpg");
+		material.bumpMap = THREE.ImageUtils.loadTexture("images/earthbump1k.jpg");
+		material.bumpScale = 0.05;
+		material.specularMap = THREE.ImageUtils.loadTexture("images/earthspec1k.jpg");
+		material.specular = new THREE.Color("grey");
+
+		//Clouds
+		geometry = new THREE.SphereGeometry(0.51, 32, 32)
+		material = new THREE.MeshPhongMaterial();
+		material.alphaMap = THREE.ImageUtils.loadTexture("images/cloud.jpg");
+		material.side = THREE.DoubleSide;
+		material.opacity = 0.8;
+		material.transparent = true;
+		material.depthWrite = false;
+		var cloudMesh = new THREE.Mesh(geometry, material);
+		earthMesh.add(cloudMesh);
+
+//		//Star field
+//		geometry = new THREE.SphereGeometry(3, 32, 32);
+//		material = new THREE.MeshBasicMaterial();
+//		material.map = THREE.ImageUtils.loadTexture("images/galaxy_starfield.png");
+//		material.side = THREE.BackSide;
+//		var mesh = new THREE.Mesh(geometry, material);
+//		scene.add(mesh);
+
+		camera.position.z = 1.5;
+
+		var render = function () {
+			//Rotation animation
+			earthMesh.rotation.y += 0.0005;
+  			cloudMesh.rotation.y += 0.00025;
+
+			requestAnimationFrame(render);
+
+			renderer.render(scene, camera);
+		};
+
+		render();
+		
+		window.onresize=function(){
+			$("canvas").css("height",document.body.clientWidth+"px");
+			$("canvas").css("width",document.body.clientWidth+"px");
+			$("canvas").attr("height",document.body.clientWidth+"px");
+			$("canvas").attr("width",document.body.clientWidth+"px");
+			renderer.setSize(document.body.clientWidth, document.body.clientWidth);
+		}
+		$("canvas").css("height",document.body.clientWidth+"px");
+		$("canvas").css("width",document.body.clientWidth+"px");
+		$("canvas").attr("height",document.body.clientWidth+"px");
+		$("canvas").attr("width",document.body.clientWidth+"px");
+		renderer.setSize(document.body.clientWidth, document.body.clientWidth);
+		$("canvas").css("border-radius","50%");
+	</script>
+
+</body>
+</html>
