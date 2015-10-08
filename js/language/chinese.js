@@ -4,6 +4,7 @@ var chinese={
 	resume:"我的简历",
 	experience:"工作经验",
 	production:"作品展示",
+	option:"设置",
 	blog:"我的博客",
 	other:"其他",
 	archive:"X档案",
@@ -12,5 +13,12 @@ var chinese={
 	gender:"性别：男",
 	age:"年龄："+(new Date().getFullYear()-1991),
 	planet:"星球: 银河 - 太阳系 - 地球",
-	skills:"技能："
+	skills:"技能：",
+	chart:"综合能力图",
+	language:"语言",
+	effect:"背景粒子效果",
+	open:"开启",
+	close:"关闭",
+	music:"背景音乐",
+	back:"返回"
 }

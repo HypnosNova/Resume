@@ -1,62 +1,197 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 
 	<head>
-		<meta charset="utf-8" />
-		<title></title>
-		<link rel="stylesheet" href="css/foundation.min.css" />
-		<link rel="stylesheet" type="text/css" href="css/style.css" />
-		<link rel="stylesheet" type="text/css" href="module/neonword/neonword.css" />
-		<script src="js/lib/angular.js"></script>
+		<meta charset="utf-8">
+		<!--<link rel="stylesheet" type="text/css" href="css/foundation.min.css" />-->
+		<link rel="stylesheet" href="module/window/css/drag.css" />
+		<link rel="stylesheet" href="css/styles.css" />
+		<link rel="stylesheet" href="css/demo.css">
+		<link rel="stylesheet" href="css/codemirror.css">
+		<link rel="stylesheet" href="css/default.css">
+		<link rel="stylesheet" href="css/scorllbar.css" />
+		<link rel="stylesheet" href="css/slideme.css">
+		<link rel="stylesheet" href="module/time/css/style.css" />
+		<link rel="stylesheet" href="module/sideMenu/css/style.css" />
+		<link rel="stylesheet" href="module/neonword/neonword.css" />
+		<link rel="stylesheet" href="css/rotate.css" />
+		<link rel="stylesheet" href="css/btn.css" />
+		<link rel="stylesheet" type="text/css" href="js/tooltip/tooltip.css" />
 		<script src="js/lib/jquery.js"></script>
-		<script src="js/lib/angular-translate.js"></script>
-
+		<script src="js/lib/slideme.min.js"></script>
 	</head>
 
-	<body ng-app="nova">
-		<div class="row" style="height: 5%;">
-			<h3 translate="idiom" class="blueword2 idiom"></h3>
+	<body ng-app="nova" scroll="no" style="background-image: url(img/bg.jpg);background-size: cover;" id="aaaa">
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$(".wrapper-slider").SlideMe();
+			});
+		</script>
+		<div class="wrapper-slider">
 		</div>
-		<div class="row" style="height: 90%;text-align: center;" id="bodydiv">
-			<iframe id="star" src="part/earth/sun.html" scrolling="no"></iframe>
+		<div id="osMain">
 		</div>
-		<div class="row" style="height: 90%;position: absolute;top: 5%;" id="bodydiv">
-			<div class="columns small-5">
-				<div id="hoster" class="shine_blue starBtn" translate="hoster"></div>
-				<div id="resume" class="shine_blue starBtn" translate="resume"></div>
-				<div id="experience" class="shine_blue starBtn" translate="experience"></div>
+		<div class="meny">
+			<!--最小话窗口图标存放的位置-->
+			<div class="os_title">
+				<p class="blueword2">Polaris</p>
 			</div>
-			<div class="columns small-5">
-				<div id="production" class="shine_blue starBtn" translate="production"></div>
-				<div id="blog" class="shine_blue starBtn" translate="blog"></div>
-				<div id="other" class="shine_blue starBtn" translate="other"></div>
+			<div class="item_content">
+				<ul id="sideBarContainer">
+				</ul>
 			</div>
-		</div>
-		<div class="row" style="height: 5%;" ng-controller="Ctrl" class="ng-scope">
-			<div class="columns small-1"><button class="btn ng-scope" ng-click="changeLanguage('chinese')">简体中文</button></div>
-			<div class="columns small-1"><button class="btn ng-scope" ng-click="changeLanguage('english')">English</button></div>
-			<div class="columns small-8"></div>
-		</div>
 
+			<div id="clock" class="dark">
+				<div class="display">
+					<div class="weekdays">
+					</div>
+					<div class="ampm">
+					</div>
+					<div class="digits">
+					</div>
+					<div class="date" style="margin-top: 10px;font-family: dig;font-weight: bold;">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="meny-arrow"></div>
+		<div class="contents" id="codeContainer">
+			<div style="height: 80%;position: absolute;top: 10%;width: 100%;">
+
+				<div class="btnDiv">
+					<div id="hoster" class="starBtn">
+						<div class="border rotate-5-c">
+							<div id="hosteri" class="rotate-5-ac"></div>
+						</div>
+					</div>
+					<div id="hosteriTip" class="tooltipBorder"></div>
+					<div id="hosteriText" translate="hoster" class="tooltipText"></div>
+				</div>
+				<div class="btnDiv">
+					<div id="experience" class="starBtn">
+						<div class="border rotate-5-c">
+							<div id="experiencei" class="rotate-5-ac"></div>
+						</div>
+					</div>
+					<div id="experienceiTip" class="tooltipBorder"></div>
+					<div id="experienceiText" translate="experience" class="tooltipText"></div>
+				</div>
+				<div class="btnDiv">
+					<div id="gallery" class="starBtn">
+						<div class="border rotate-5-c">
+							<div id="galleryi" class="rotate-5-ac"></div>
+						</div>
+					</div>
+					<div id="galleryiTip" class="tooltipBorder"></div>
+					<div id="galleryiText" translate="production" class="tooltipText"></div>
+				</div>
+				<div class="btnDiv">
+					<div id="set" class="starBtn">
+						<div class="border rotate-5-c">
+							<div id="seti" class="rotate-5-ac"></div>
+						</div>
+					</div>
+					<div id="setiTip" class="tooltipBorder"></div>
+					<div id="setiText" translate="option" class="tooltipText"></div>
+				</div>
+			</div>
+		</div>
+		<div id="optionDiv">
+			<div id="optionBottom">
+				<div style="width: 100%;height: 100%;" class="optionBottom">
+					<div class="rotate-5-ac" style="background-image: url(img/btn/border.png);background-size:cover;width: 300px;height: 300px;position: absolute;left: 50%;margin-left: -150px;top:70%;background-color: rgba(0,0,0,0.3);border-radius: 50%;">
+						<div class="rotate-5-ac" style="background-image: url(img/btn/border.png);background-size:cover;width: 250px;height: 250px;margin-top: 25px;margin-left: 25px;">
+							<div class="rotate-1-5-ac" style="width: 150px;height: 150px;">
+								<div class="rotate-2-5-c" style="background-image: url(img/btn/chilun.png);background-size:cover;width: 100px;height: 100px;margin-top: 25px;margin-left: 75px;"></div>
+								<div class="rotate-1-ac" style="background-image: url(img/btn/chilun.png);background-size:cover;width: 150px;height: 150px;margin-top: 0px;margin-left: 50px;"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="optionMian">
+				<div translate="option" id="optionTitle"></div>
+				<div id="leftside">
+					<table style="font-family: '微软雅黑'; font-size: 24px;width: 400px;">
+						<tr style="height: 48px;">
+							<td translate="language" style="text-align: right;"></td>
+						</tr>
+						<tr style="height: 48px;">
+							<td translate="effect" style="text-align: right;"></td>
+						</tr>
+						<tr style="height: 48px;">
+							<td translate="music" style="text-align: right;"></td>
+						</tr>
+					</table>
+				</div>
+				<div id="rightside">
+					<table style="font-family: '微软雅黑'; font-size: 24px;width: 200px;margin-left: 10px;" ng-controller="Ctrl">
+						<tr style="height: 48px;">
+							<td style="text-align: left;">
+								<button class="optionBtn" ng-click="changeLanguage('chinese')">简体中文</button>
+								<button class="optionBtn" ng-click="changeLanguage('english')">English</button>
+							</td>
+						</tr>
+						<tr style="height: 48px;">
+							<td style="text-align: left;">
+								<button class="optionBtn" onclick="openPE()" translate="open" style="display: none;" id="openPE"></button>
+								<button class="optionBtn" onclick="closePE()" translate="close" id="closePE"></button>
+							</td>
+						</tr>
+						<tr style="height: 48px;">
+							<td style="text-align: left;">
+								<button class="optionBtn" onclick="openBM()" translate="open" style="display: none;" id="openBM"></button>
+								<button class="optionBtn" onclick="closeBM()" translate="close" id="closeBM"></button>
+							</td>
+						</tr>
+						<tr style="height: 48px;">
+							<td style="text-align: left;">
+								<button class="optionBtn" onclick="setOptionClose()" translate="back"></button>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div style="display: none;" id="tools">
+			<audio src="media/background.mp3" id="backgroundMusic" autoplay="autoplay" loop="loop"></audio>
+			<audio src="media/CLICK_10.WAV" id="btnEnter"></audio>
+			<audio src="media/CLICK_10.WAV" id="btnClick"></audio>
+		</div>
 	</body>
+	<script src="js/lib/html2canvas.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/appInfo.js"></script>
+	<script src="js/lib/Modernizr.js"></script>
+	<script src="js/lib/meny.js"></script>
+	<script src="js/touchable.js"></script>
+	<script src="js/later.js"></script>
+	<script src="module/sideMenu/js/dragmove.js"></script>
+	<script src="js/background.js"></script>
+	<script src="module/window/js/drag.js"></script>
+	<script src="module/time/js/moment.min.js"></script>
+	<script src="module/time/js/script.js"></script>
+	<script src="module/magic/js/magic.js"></script>
+	<script src="js/tooltip/tooltip.js"></script>
+	<script src="js/lib/angular.js"></script>
+	<script src="js/lib/angular-translate.js"></script>
 	<script src="js/language/chinese.js"></script>
 	<script src="js/language/english.js"></script>
 	<script src="js/language/language.js"></script>
-	<script src="js/lib/foundation.js"></script>
-	<script src="module/magic/js/magic.js" type="text/javascript" charset="utf-8"></script>
-	<script type="text/javascript">
-		$(document).foundation();
-		window.onresize = setUI;
-		setUI();
-		function setUI() {
-			var bodyHeight=document.body.clientHeight*0.9;
-			$("#bodydiv").height(bodyHeight+"px");
-			$(".starBtn").height(bodyHeight*0.1+"px").css("line-height",bodyHeight*0.1+"px").css("font-size",bodyHeight*0.05+"px")
-			$("#star").height(bodyHeight * 0.6 + "px").css("margin-top",bodyHeight*0.2-4+"px");
-			$("#star").width($("#star").height() + "px");
-			$(".starBtn").css("margin-top",bodyHeight*0.1-4+"px");
-			$("#hoster").css("margin-top",bodyHeight*0.25-4+"px");
-			$("#production").css("margin-top",bodyHeight*0.25-4+"px");
+	<script src="module/explore/js/explore.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		$(function() {
+			setInterval('setIframeHeight()', 10); //动态调节
+			setInterval('var now=new Date();$(".date").html(now.getFullYear()+"-"+(now.getMonth()+1)+"-"+now.getDate())', 1000);
+		});
+
+		function setIframeHeight() {
+			var array = document.getElementsByName("appframe")
+			for (var i = 0; i < array.length; i++) {
+				$(array[i].parentNode).css("width", (array[i].parentNode.parentNode.offsetWidth - 12) + "px");
+				$(array[i].parentNode).css("height", (array[i].parentNode.parentNode.offsetHeight - 40) + "px");
+				array[i].height = array[i].parentNode.offsetHeight;
+			}
+			$(".item_content").height($(".item_content").parent().height() - 150);
 		}
 		$(document).ready(function() {
 			$(document.body).setMagic({
@@ -66,7 +201,118 @@
 				forever: true,
 				count: 150
 			});
+			setUI();
 		});
+
+		function setUI() {
+			$(".starBtn").height($(".starBtn").width());
+			$(".btnDiv").height($(".starBtn").width());
+			var btna = document.getElementsByClassName("starBtn");
+			for (var i = 0; i < btna.length; i++) {
+				var x = $(btna[i]).offset().left;
+				var width = $(btna[i]).outerWidth();
+				var height = $(btna[i]).outerHeight();
+				$("#" + $(btna[i]).attr("id") + "iTip").css("margin-left", (x + width + "px")).css("margin-top", (height * 0.65 + "px"));
+				$("#" + $(btna[i]).attr("id") + "iText").css("font-size", (height * 0.35 + "px"));
+				var wid2 = $("#" + $(btna[i]).attr("id") + "iText").outerWidth();
+				$("#" + $(btna[i]).attr("id") + "iText").css("margin-left", (x + width + wid2 + "px")).css("margin-top", (height * 0.17 + "px"));
+			}
+		}
+		$(".rotate-5-ac").bind("mouseenter", function() {
+			addTooltip($(this).attr("id"));
+			$("#btnEnter").remove();
+			$("#tools").append('<audio src="media/CLICK_16.WAV" autoplay="autoplay" id="btnSound"></audio>');
+		});
+		$(".rotate-5-ac").bind("click", function() {
+			$("#btnClick").remove();
+			$("#tools").append('<audio src="media/CLICK_10.WAV" autoplay="autoplay" id="btnSound"></audio>');
+		});
+		$(".rotate-5-ac").bind("mouseout", function() {
+			closeTooltip($(this).attr("id"));
+		});
+		$("#gallery").bind("click", function() {
+			isOpen = true;
+			$(".wrapper-slider").autoDown();
+			setBtnDivLeft();
+		});
+		$("#set").bind("click", function() {
+			setBtnDivLeft();
+			setOptionShow();
+		});
+
+		function closeAppDiv() {
+			isOpen = false;
+			$(".wrapper-slider").autoUp();
+			setBtnDivDefault();
+		}
+
+		function setBtnDivLeft() {
+			var btnDivArr = document.getElementsByClassName("btnDiv");
+			$(btnDivArr[0]).css({
+				marginLeft: "-20%"
+			});
+			$(btnDivArr[1]).css({
+				marginLeft: "-25%"
+			});
+			$(btnDivArr[2]).css({
+				marginLeft: "-15%"
+			});
+			$(btnDivArr[3]).css({
+				marginLeft: "-20%"
+			});
+		}
+
+		function setOptionShow() {
+			$("#optionDiv").show();
+			setTimeout(function() {
+				$("#optionDiv").css("opacity", "1");
+				$("#leftside").css("margin-left", "-200px");
+				$("#rightside").css("margin-left", "0");
+				$("#optionBottom").css("margin-top", "12%");
+			}, 10);
+		}
+
+		function setOptionClose() {
+			$("#leftside").css("margin-left", "-400px");
+			$("#rightside").css("margin-left", "200px");
+			$("#optionBottom").css("margin-top", "22%");
+			$("#optionDiv").css("opacity", "0");
+			setBtnDivDefault();
+			setTimeout(function() {
+				$("#optionDiv").hide()
+			}, 500);
+		}
+
+		function setBtnDivDefault() {
+			var btnDivArr = document.getElementsByClassName("btnDiv");
+			$(btnDivArr).css({
+				marginLeft: "0"
+			});
+		}
+
+		function closePE() {
+			$(".sparkle-canvas").hide();
+			$("#closePE").hide();
+			$("#openPE").show();
+		}
+
+		function openPE() {
+			$(".sparkle-canvas").show();
+			$("#closePE").show();
+			$("#openPE").hide();
+		}
+
+		function closeBM() {
+			document.getElementById("backgroundMusic").pause();
+			$("#closeBM").hide();
+			$("#openBM").show();
+		}
+
+		function openBM() {
+			document.getElementById("backgroundMusic").play();
+			$("#closeBM").show();
+			$("#openBM").hide();
+		}
 	</script>
 
 </html>
